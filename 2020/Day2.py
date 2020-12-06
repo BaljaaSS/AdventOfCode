@@ -1,6 +1,6 @@
 import collections
 
-file1 = open('AdventOfCode2020/Input2.txt', 'r') 
+file1 = open('AdventOfCode/2020/Input2.txt', 'r') 
 lines = file1.read().splitlines() 
 
 def checkIndexOfPasswords(firstIndex, secondIndex, letter, password):

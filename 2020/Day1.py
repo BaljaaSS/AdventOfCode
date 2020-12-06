@@ -1,6 +1,6 @@
 import numpy as np
 
-yearList = np.genfromtxt("AdventOfCode2020/Input1.txt", usecols=0, usemask=False)
+yearList = np.genfromtxt("AdventOfCode/2020/Input1.txt", usecols=0, usemask=False)
 
 # %% Part-1
 shortYearList = yearList
