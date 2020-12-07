@@ -1,7 +1,7 @@
 import json 
 from re import search, match
 
-file1 = open('AdventOfCode/2020/Input4.txt', 'r') 
+file1 = open('AdventOfCode/2020/Input/Input4.txt', 'r') 
 lines = file1.read().splitlines() 
 
 class Passport:

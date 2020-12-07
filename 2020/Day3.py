@@ -1,4 +1,4 @@
-file1 = open('AdventOfCode/2020/Input3.txt', 'r') 
+file1 = open('AdventOfCode/2020/Input/Input3.txt', 'r') 
 lines = file1.read().splitlines() 
 
 slope = [(1,1),(3,1),(5,1),(7,1), (1,2)]

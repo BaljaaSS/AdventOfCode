@@ -1,4 +1,4 @@
-file1 = open('AdventOfCode/2020/Input5.txt', 'r') 
+file1 = open('AdventOfCode/2020/Input/Input5.txt', 'r') 
 lines = file1.read().splitlines() 
 
 # %% Part-1

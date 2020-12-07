@@ -1,7 +1,7 @@
 from re import search
 import collections
 
-file1 = open('AdventOfCode/2020/Input6.txt', 'r') 
+file1 = open('AdventOfCode/2020/Input/Input6.txt', 'r') 
 lines = file1.read().splitlines() 
 lines.append("")
 lines.append("123")
