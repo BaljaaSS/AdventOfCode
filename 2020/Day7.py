@@ -1,4 +1,3 @@
-from array import *
 file1 = open('AdventOfCode/2020/Input/Input7.txt', 'r') 
 lines = file1.read().splitlines() 
 
