@@ -1,5 +1,5 @@
-file1 = open('AdventOfCode/2020/Input/Input5.txt', 'r') 
-lines = file1.read().splitlines() 
+file1 = open('AdventOfCode/2020/Input/Input5.txt', 'r')
+lines = file1.read().splitlines()
 
 # %% Part-1
 def convertColumnToNumber(line):
@@ -13,6 +13,7 @@ def convertColumnToNumber(line):
             cUpper = cUpper - (cUpper-cLower)/2
     column = cLower
     return column
+
 
 def convertRowToNumber(line):
     letters = list(line)
@@ -31,18 +32,17 @@ def findMySeat(seatIds):
     prev = seatIds[0]
     for seatId in seatIds[1:]:
         if (seatId-1 != prev) and (seatId != prev):
-            return seatId -1
+            return seatId - 1
         prev = seatId
+
 
 # %% Main
 seatIds = []
 for line in lines:
     row = convertRowToNumber(line[0:7])
     column = convertColumnToNumber(line[7:10])
-    seatIds.append(row * 8 + column) 
+    seatIds.append(row * 8 + column)
 
-print("Part-1: Maximum ID :", max(seatIds))     
+print("Part-1: Maximum ID :", max(seatIds))
 seatIds.sort()
-print("Part-2: My seat ID is :", findMySeat(seatIds))     
-
-
+print("Part-2: My seat ID is :", findMySeat(seatIds))

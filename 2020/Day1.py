@@ -1,6 +1,7 @@
 import numpy as np
-
-yearList = np.genfromtxt("AdventOfCode/2020/Input/Input1.txt", usecols=0, usemask=False)
+from py_linq import Enumerable
+yearList = np.genfromtxt(
+    "AdventOfCode/2020/Input/Test1.txt", usecols=0, usemask=False, dtype= int)
 
 # %% Part-1
 shortYearList = yearList

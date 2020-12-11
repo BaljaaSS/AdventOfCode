@@ -1,7 +1,7 @@
 import operator
-file1 = open('AdventOfCode/2020/Input/Input8.txt', 'r') 
-Lines = file1.read().splitlines() 
-ops = { "+": operator.add, "-": operator.sub }
+file1 = open('AdventOfCode/2020/Input/Input8.txt', 'r')
+Lines = file1.read().splitlines()
+ops = {"+": operator.add, "-": operator.sub}
 
 # %% Part-1
 def ExecuteInstruction(line, index, accumulator):
@@ -14,18 +14,20 @@ def ExecuteInstruction(line, index, accumulator):
         index = ops[line[4:5]](index, int(line[5:]))
     return index, accumulator
 
+
 def TerminateCode(lines):
     listOfVisits = [0] * len(lines)
-    index = 0 
+    index = 0
     accumulator = 0
     terminated = False
     while(index < len(lines)):
         if (listOfVisits[index] >= 1):
             terminated = True
             break
-        listOfVisits[index] += 1    
-        newIndex, accumulator = ExecuteInstruction(lines[index], index, accumulator)
-        index = newIndex    
+        listOfVisits[index] += 1
+        newIndex, accumulator = ExecuteInstruction(
+            lines[index], index, accumulator)
+        index = newIndex
     return accumulator, terminated
 # %% Part-2
 def FinishCode():
@@ -40,7 +42,8 @@ def FinishCode():
         if(not terminated):
             break
     return accumulator
-        
+
+
 # %% Main
-print("Part-1: A value in the accumulator is :", TerminateCode(Lines)[0])   
-print("Part-2: A value in the accumulator is :", FinishCode())   
+print("Part-1: A value in the accumulator is :", TerminateCode(Lines)[0])
+print("Part-2: A value in the accumulator is :", FinishCode())

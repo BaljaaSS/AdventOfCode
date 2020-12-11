@@ -1,8 +1,9 @@
-import json 
+import json
 from re import search, match
 
-file1 = open('AdventOfCode/2020/Input/Input4.txt', 'r') 
-lines = file1.read().splitlines() 
+file1 = open('AdventOfCode/2020/Input/Input4.txt', 'r')
+lines = file1.read().splitlines()
+
 
 class Passport:
     byr_uLimit = 2002
@@ -18,22 +19,22 @@ class Passport:
     hgtCM_lLimit = 150
 
     hgtIN_uLimit = 76
-    hgtIN_lLimit = 59    
+    hgtIN_lLimit = 59
 
     hcl_rex = '^#[a-zA-Z0-9]{6}$'
     ecl_colors = 'amb blu brn gry grn hzl oth'
 
     pid_rex = "^[0-9]{9}$"
 
-    def __init__(self, byr, iyr, eyr, hgt , hcl, ecl, pid, cid = 0):
+    def __init__(self, byr, iyr, eyr, hgt, hcl, ecl, pid, cid=0):
         self.byr = int(byr)
-        self.iyr = int(iyr)    
+        self.iyr = int(iyr)
         self.eyr = int(eyr)
-        self.hgt = hgt    
+        self.hgt = hgt
         self.hcl = hcl
-        self.ecl = ecl        
+        self.ecl = ecl
         self.pid = pid
-            
+
     def Validate(self):
         if (self.byr_lLimit > self.byr or self.byr > self.byr_uLimit):
             return False
@@ -42,16 +43,16 @@ class Passport:
             return False
 
         if (self.eyr_lLimit > self.eyr or self.eyr > self.eyr_uLimit):
-            return False        
+            return False
 
-        if (search("cm",self.hgt)):
+        if (search("cm", self.hgt)):
             hgt = int(self.hgt[:-2])
             if (self.hgtCM_lLimit > hgt or hgt > self.hgtCM_uLimit):
-                return False                        
+                return False
         else:
             hgt = int(self.hgt[:-2])
             if (self.hgtIN_lLimit > hgt or hgt > self.hgtIN_uLimit):
-                return False                        
+                return False
 
         if (not match(self.hcl_rex, self.hcl)):
             return False
@@ -64,6 +65,7 @@ class Passport:
 
         return True
 
+
 requiredFields = ['byr', 'iyr', 'eyr', 'hgt', 'hcl', 'ecl', 'pid']
 
 # %% Part-1
@@ -71,24 +73,26 @@ def ContainsAllFields(passportStr):
     count = 0
     for field in requiredFields:
         if (search(field, passportStr)):
-            count += 1        
-    
+            count += 1
+
     if (count == len(requiredFields)):
         return True
     else:
-        return False        
+        return False
 
 # %% Part-2
 def ValidatePassport(passportStr):
     if (ContainsAllFields(passportStr)):
         passport = ParseToPassportClass(passportStr)
         return passport.Validate()
-    return False    
+    return False
+
 
 def ParseToPassportClass(passportStr):
     passportJson = '{\"' + passportStr.strip().replace(" ", ",") + '\"}'
-    passportJson = passportJson.replace(":", "\":\"").replace(",","\",\"")
+    passportJson = passportJson.replace(":", "\":\"").replace(",", "\",\"")
     return Passport(**json.loads(passportJson))
+
 
 # %% Main
 passportStr = ""
@@ -98,11 +102,11 @@ for line in lines:
     if (line == ''):
         if (ContainsAllFields(passportStr)):
             count += 1
-        if (ValidatePassport(passportStr)):    
+        if (ValidatePassport(passportStr)):
             countV += 1
         passportStr = ""
     else:
         passportStr = passportStr + line + " "
 
-print("Part-1: A number of valid passports is :", count)        
+print("Part-1: A number of valid passports is :", count)
 print("Part-2: A number of valid passports with validation is :", countV)
