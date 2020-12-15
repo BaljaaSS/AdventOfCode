@@ -47,5 +47,5 @@ def CreateListofCombos(numList, LenOfCombo):
 preambleLen = 25
 invalidNumber, index = FindInvalidNumber()
 print("Part-1: A first number that does not follow the rule is :", invalidNumber)
-print("Part-2: A value in the accumulator is :",
+print("Part-2: A weakness is :",
       FindWeakness(invalidNumber, index))
