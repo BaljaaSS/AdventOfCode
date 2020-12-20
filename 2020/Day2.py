@@ -3,7 +3,7 @@ import collections
 file1 = open('AdventOfCode/2020/Input/Input2.txt', 'r')
 lines = file1.read().splitlines()
 
-
+# %% Part-1 and Part-2
 def checkIndexOfPasswords(firstIndex, secondIndex, letter, password):
     if(password[firstIndex-1] == letter) != (password[secondIndex-1] == letter):
         return True

@@ -11,11 +11,9 @@ def FindInvalidNumber():
             return x, lastIndex
         firstIndex += 1
 
-
 def CheckSum(sumVal, numberList):
-    combos = combinations(numberList, 2)
-    for comb in combos:
-        if (sum(comb) == sumVal):
+    for comb in combinations(numberList, 2):
+        if sum(comb) == sumVal:
             return True
     return False
 
@@ -27,11 +25,9 @@ def FindWeakness(invalidNum, index):
     while check:
         cList = CreateListofCombos(numList, lenOfCombo)
         lenOfCombo += 1
-        combos = filter(lambda e: sum(e) == invalidNum, cList)
-        for comb in combos:
+        for comb in filter(lambda e: sum(e) == invalidNum, cList):
             check = False
             return max(comb) + min(comb)
-
 
 def CreateListofCombos(numList, LenOfCombo):
     comboList = []
@@ -41,7 +37,6 @@ def CreateListofCombos(numList, LenOfCombo):
             comb += (numList[j],)
         comboList.append(comb)
     return comboList
-
 
 # %% Main
 preambleLen = 25

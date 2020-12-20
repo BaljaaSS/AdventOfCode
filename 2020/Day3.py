@@ -3,7 +3,7 @@ lines = file1.read().splitlines()
 
 slope = [(1, 1), (3, 1), (5, 1), (7, 1), (1, 2)]
 
-## Part-1 and Part-2
+# %% Part-1 and Part-2
 mult = 1
 for xStep, yStep in slope:
     xIndex = 0

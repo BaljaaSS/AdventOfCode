@@ -44,10 +44,7 @@ def CountAdjasentSeats(i, j, cell, Cmat):
                     (i, j+1), (i+1, j-1), (i+1, j), (i+1, j+1)]
     rMax = len(Cmat)
     cMax = len(Cmat[0])
-    actualList = []
-    for r, c in adjasentList:
-        if (c > -1) and (c < cMax) and (r > -1) and (r < rMax):
-            actualList.append((r, c))
+    actualList = [(r, c) for r, c in adjasentList if (c > -1) and (c < cMax) and (r > -1) and (r < rMax)]
     return sum(1 for r, c in actualList if Cmat[r][c] == '#'), actualList
 
 # %% Main

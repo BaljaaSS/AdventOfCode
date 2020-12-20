@@ -65,7 +65,6 @@ class Path:
                             self.pos + step, sList)
                 path.CountWays()
 
-
 # %% Main
 print("Part-1: a number of 1-jolt differences multiplied by the number of 3-jolt differences is :", ComputeMulti())
 print("Part-2: a total number of distinct ways is :", CountWays())

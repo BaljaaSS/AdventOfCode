@@ -14,7 +14,6 @@ def ExecuteInstruction(line, index, accumulator):
         index = ops[line[4:5]](index, int(line[5:]))
     return index, accumulator
 
-
 def TerminateCode(lines):
     listOfVisits = [0] * len(lines)
     index = 0
@@ -42,7 +41,6 @@ def FinishCode():
         if(not terminated):
             break
     return accumulator
-
 
 # %% Main
 print("Part-1: A value in the accumulator is :", TerminateCode(Lines)[0])

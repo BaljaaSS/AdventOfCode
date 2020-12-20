@@ -4,7 +4,6 @@ from re import search, match
 file1 = open('AdventOfCode/2020/Input/Input4.txt', 'r')
 lines = file1.read().splitlines()
 
-
 class Passport:
     byr_uLimit = 2002
     byr_lLimit = 1920
@@ -65,20 +64,12 @@ class Passport:
 
         return True
 
-
 requiredFields = ['byr', 'iyr', 'eyr', 'hgt', 'hcl', 'ecl', 'pid']
 
 # %% Part-1
 def ContainsAllFields(passportStr):
-    count = 0
-    for field in requiredFields:
-        if (search(field, passportStr)):
-            count += 1
-
-    if (count == len(requiredFields)):
-        return True
-    else:
-        return False
+    count = sum(1 for field in requiredFields if search(field, passportStr))
+    return True if count == len(requiredFields) else False
 
 # %% Part-2
 def ValidatePassport(passportStr):
@@ -86,7 +77,6 @@ def ValidatePassport(passportStr):
         passport = ParseToPassportClass(passportStr)
         return passport.Validate()
     return False
-
 
 def ParseToPassportClass(passportStr):
     passportJson = '{\"' + passportStr.strip().replace(" ", ",") + '\"}'

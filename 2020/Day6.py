@@ -10,21 +10,12 @@ Alphabet = 'abcdefghijklmnopqrstuvwxyz'
 
 # %% Part-1
 def CountAllYes(answers):
-    count = 0
-    for letter in Alphabet:
-        if (search(letter, answers)):
-            count += 1
-    return count
+    return sum(1 for letter in Alphabet if search(letter, answers))
 
 # %% Part-2
 def CountSameYes(answers, numberOfPerson):
-    count = 0
     countResult = collections.Counter(answers)
-    for letter in Alphabet:
-        if (countResult[letter] == numberOfPerson):
-            count += 1
-    return count
-
+    return sum(1 for letter in Alphabet if countResult[letter] == numberOfPerson)
 
 # %% Main
 groupAnswers = ""

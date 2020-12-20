@@ -2,8 +2,6 @@ file1 = open('AdventOfCode/2020/Input/Input7.txt', 'r')
 lines = file1.read().splitlines()
 
 # %% Main
-
-
 class Bag:
     childBags = []
 
@@ -12,14 +10,12 @@ class Bag:
         self.num = num
 
     def countBag(self):
-        sum = 0
         if (self.childBags[0] == None):
             return self.num
-
+        s = 0
         for cbag in self.childBags:
-            sum += cbag.num * FindBag(cbag.color).countBag() + cbag.num
-        return sum
-
+            s += cbag.num * FindBag(cbag.color).countBag() + cbag.num
+        return s
 
 def ParseToBagObject(line):
     listOfBags = line.split(',')
@@ -57,7 +53,6 @@ def computeParentsList(oldParentList):
                 newParentList.append(listOfBags[0].strip())
     return newParentList
 
-
 actualParentList = []
 
 def computeParentBags(parentList):
@@ -65,22 +60,15 @@ def computeParentBags(parentList):
         parentList = computeParentsList(parentList)
     return len(actualParentList)
 
-
 print("Part-1: A number of bags can contain my \'shiny gold\' bag is :",
       computeParentBags(['shiny gold']))
 
 # %% Part-2 code
 def FindBag(bagStr):
-    for bag in listOfBags:
-        if (bag.color == bagStr):
-            return bag
-            break
-
+    return next(bag for bag in listOfBags if bag.color == bagStr)
 
 def ComputeTotalBags(bagStr):
-    bag = FindBag(bagStr)
-    return bag.countBag()
-
+    return FindBag(bagStr).countBag()
 
 print("Part-2: A number of total bags can fit inside my \'shiny gold\' bag is :",
       ComputeTotalBags('shiny gold'))
