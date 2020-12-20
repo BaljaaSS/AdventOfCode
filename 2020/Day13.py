@@ -9,9 +9,7 @@ def GetTimeList(time):
     Times = [b*(dm[0]+1) for b,dm in zip(buses, divMod)]
     iZeroMod = [divMod.index(dm) for dm in divMod if dm[1]==0]
     for i in iZeroMod:
-        b = buses[i]
-        dm = divMod[i][0]
-        Times[i] = b*dm
+        Times[i] = buses[i]*divMod[i][0]
     return Times
 
 def computeMulti(time):
@@ -29,15 +27,12 @@ def ComputePattern(tStamp):
     return patternList
 
 def FindTimestamp():
-    tStamp = 99999999999992
-    check = True
-    while check:
-        tStamp += buses[0]
-        Times = GetTimeList(tStamp)
-        pattern = ComputePattern(tStamp)
-        if(pattern == Times):
-            check = False
+    pattern = ComputePattern(0)
+    step = buses[0]
+    tStamp = 0
+    while sum(divmod(p,b)[1] for b,p in zip(buses, [p+tStamp for p in pattern])) != 0:
+        tStamp += step
     return tStamp
 # %% Main
 print("Part-1: BusID x minTime = :", computeMulti(timestamp))
-# print("Part-2: Earliest timestamp is :", FindTimestamp())
+print("Part-2: Earliest timestamp is :", FindTimestamp())
