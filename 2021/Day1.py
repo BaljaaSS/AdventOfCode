@@ -13,6 +13,6 @@ import Methods as met
 measurements = pd.read_csv("Inputs/Day1.csv")
 
 print("Part-1: number of increase is :", met.CountIncrease(measurements['Data']))
-print("Part-2: number of increase by 3 is :", met.CountInreaseBy3(measurements['Data']))
+print("Part-2: number of increase by 3 is :", met.CountIncreaseBy3(measurements['Data']))
     
     
