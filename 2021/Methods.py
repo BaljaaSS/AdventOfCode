@@ -7,6 +7,7 @@ Created on Wed Dec  1 06:52:42 2021
 
 # %% Day1
 def CountIncrease(data):
+    # Part1
     count = 0
     previous = data[0]
     for m in data:
@@ -16,6 +17,7 @@ def CountIncrease(data):
     return count
 
 def CountIncreaseBy3(data):
+    # Part2
     sumOfThree = []
     for i in data.index:
         sumOfThree.append(data[i:i+3].sum())              
@@ -23,6 +25,7 @@ def CountIncreaseBy3(data):
 
 # %% Day2
 def PilotSubmarine(commands):
+    # Part1
     cordinate = [0,0]
     for command in commands:
         if (command[0] == 'forward'):
@@ -34,6 +37,7 @@ def PilotSubmarine(commands):
     return cordinate[0]*cordinate[1]
 
 def PilotSubmarineWithAim(commands):
+    # Part2    
     cordinate = [0,0]
     aim = 0
     for command in commands:
