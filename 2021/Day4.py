@@ -6,10 +6,10 @@ Created on Mon Dec  6 10:47:45 2021
 """
 import numpy as np
 
-RNumbers = open('Inputs/Day4T_RandomNumbers.txt', 'r').read().split(',')
+RNumbers = open('Inputs/Day4_RandomNumbers.txt', 'r').read().split(',')
 RNumbers = [int(i) for i in RNumbers]
 
-with open('Inputs/Day4T.txt', 'r') as Input:
+with open('Inputs/Day4.txt', 'r') as Input:
     Lines = [col.split() for col in Input.read().splitlines()]
   
 def ConvertToMatrix(lines):
@@ -65,7 +65,7 @@ def PlayBingo(lines, rNumbers):
         # print(rn)
         stop1 = False
         for board in boardsByList:
-            board[0], stop2, subSum, notLast = CountToList(board[0].copy(), rn, sumT)
+            board[0], stop2, subSum = CountToList(board[0].copy(), rn, sumT)
             if(subSum):
                 board[1] -= rn   
             if (stop2):
@@ -79,8 +79,5 @@ def PlayBingo(lines, rNumbers):
     print(rNumStoped)        
     return sumM*rNumStoped
 
-def PlayBingoToLose(lines, rNumbers):
-    return 3
-    
 print("Part-1: Bingo Number is :", PlayBingo(Lines, RNumbers))
-print("Part-2: Bingo Number is :", PlayBingoToLose(Lines, RNumbers))
+# print("Part-2: Bingo Number is :", PlayBingoToLose(Lines, RNumbers))
