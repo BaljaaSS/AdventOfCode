@@ -16,4 +16,4 @@ def SolvePart1():
                 ans +=1
     return ans
     
-print("Part-1: Bingo Number is :", SolvePart1())
+print("Part-1 :", SolvePart1())
